@@ -7,8 +7,27 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+  let hand1Std = hand1.tolowercase();
+  let hand2Std = hand2.tolowercase();
 
 function rockPaperScissors(hand1, hand2) {
+  hand1.replace(" ", "");
+  
+
+  if(hand1 == hand2);{
+    console.log ("It's a tie!");
+  }
+
+  if(hand1 == 'rock'){
+    if(hand2 == 'paper'){
+      console.log ("Hand two wins!")
+    }else{
+      console.log ("Hand one wins!")
+    }
+  }else{
+
+  }
+
 
   // Write code here
 

@@ -9,8 +9,12 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  word = word.toLowerCase();
 
   // Your code here
+  //indexof and substring
+  // look for vowels
+  // your making a piglatin translator
 
 }
 
