@@ -8,11 +8,28 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+  function pigLatin(word) {
+    let newWord = word.trim().toLowerCase();
+  
+    let vowels = "aeiou";
+  
+    function vowelsDetected(newWord) {
+      for (let i = 0; i < newWord.length; i++) {
+        if (vowels.indexOf(newWord[i]) !== -1) {
+          return i;
+        }
+      }
+    }
 
-  // Your code here
+    let firstVowel = vowelsDetected(newWord);
+    if (firstVowel > 0) {
+      return newWord.slice(firstVowel) + newWord.slice(0, firstVowel) + "ay";
+    } else {
+      return newWord + "yay";
+    }
+  }
 
-}
+
 
 
 function getPrompt() {
