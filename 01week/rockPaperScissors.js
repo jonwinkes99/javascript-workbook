@@ -7,12 +7,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-  let hand1Std = hand1.tolowercase();
-  let hand2Std = hand2.tolowercase();
+  let hand1Std = hand1.toLowerCase();
+  let hand2Std = hand2.toLowerCase();
 
 function rockPaperScissors(hand1, hand2) {
 
-  if (hand1 == "rock" && hand2 == "rock") {
+  if (hand1 == hand2) {
     return "It's a tie!";
   } else if (hand1 == "rock" && hand2 == "paper") {
     return "Paper beats rock, hand 2 wins!";
@@ -22,15 +22,11 @@ function rockPaperScissors(hand1, hand2) {
     return "paper beats rock, hand 1 wins!";
   } else if (hand1 == "paper" && hand2 == "scissors") {
     return "scissors beats paper, hand 2 wins";
-  } else if (hand1 == "paper" && hand2 == "paper") {
-    return "Both chose paper, it's a draw!";
   } else if (hand1 == "scissors" && hand2 == "rock") {
     return "rock beats scissors, hand 2 wins!";
   } else if (hand1 == "scissors" && hand2 == "paper") {
     return "scissors beats paper, hand 1 wins!";
-  } else if (hand1 == "scissors" && hand2 == "scissors") {
-    return "Both chose scissors, It's a draw";
-  }
+  } 
 
 }
 
