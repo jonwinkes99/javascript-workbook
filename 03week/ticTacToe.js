@@ -1,49 +1,46 @@
-'use strict';
+"use strict";
 
-const assert = require('assert');
-const readline = require('readline');
+const assert = require("assert");
+const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-let board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
-];
 
-let playerTurn = 'X';
+
+let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+
+
+
+let playerTurn = "X";
 
 function printBoard() {
-  console.log('   0  1  2');
-  console.log('0 ' + board[0].join(' | '));
+  console.log("   0  1  2");
+  console.log("0 " + board[0].join(" | "));
+  console.log("  ---------");
+  console.log("1 " + board[1].join(" | "));
   console.log('  ---------');
-  console.log('1 ' + board[1].join(' | '));
-  console.log('  ---------');
-  console.log('2 ' + board[2].join(' | '));
+  console.log("2 " + board[2].join(" | "));
 }
 
 function horizontalWin() {
   if (
-    board[0][0] === playerTurn &&
-    board[0][1] === playerTurn &&
-    board[0][2] === playerTurn
+    board[0][0] != " " &&
+    board[0][0] == board[0][1] &&
+    board[0][1] == board[0][2]
   ) {
-    console.log(true);
     return true;
   } else if (
-    board[1][0] === playerTurn &&
-    board[1][1] === playerTurn &&
-    board[1][2] === playerTurn
+    board[1][0] != " " &&
+    board[1][0] == board[1][1] &&
+    board[1][1] == board[1][2]
   ) {
-    console.log(true);
     return true;
   } else if (
-    board[2][0] === playerTurn &&
-    board[2][1] === playerTurn &&
-    board[2][2] === playerTurn
+    board[2][0] != " " &&
+    board[2][0] == board[2][1] &&
+    board[2][1] == board[2][2]
   ) {
-    console.log(true);
     return true;
   } else {
     return false;
@@ -52,24 +49,22 @@ function horizontalWin() {
 
 function verticalWin() {
   if (
-    board[0][0] === playerTurn &&
-    board[1][0] === playerTurn &&
-    board[2][0] === playerTurn
+    board[0][0] != " " &&
+    board[0][0] == board[1][0] &&
+    board[1][0] == board[2][0]
   ) {
-    console.log(true);
-  } else if (
-    board[0][1] === playerTurn &&
-    board[1][1] === playerTurn &&
-    board[2][1] === playerTurn
-  ) {
-    console.log(true);
     return true;
   } else if (
-    board[0][2] === playerTurn &&
-    board[1][2] === playerTurn &&
-    board[2][2] === playerTurn
+    board[0][1] != " " &&
+    board[0][1] == board[1][1] &&
+    board[1][1] == board[2][1]
   ) {
-    console.log(true);
+    return true;
+  } else if (
+    board[0][2] != " " &&
+    board[0][2] == board[1][2] &&
+    board[1][2] == board[2][2]
+  ) {
     return true;
   } else {
     return false;
@@ -78,17 +73,16 @@ function verticalWin() {
 
 function diagonalWin() {
   if (
-    board[0][0] === playerTurn &&
-    board[1][1] === playerTurn &&
-    board[2][2] === playerTurn
+    board[0][0] != " " &&
+    board[0][0] == board[1][1] &&
+    board[1][1] == board[2][2]
   ) {
-    console.log(true);
+    return true;
   } else if (
-    board[0][2] === playerTurn &&
-    board[1][1] === playerTurn &&
-    board[2][0] === playerTurn
+    board[0][0] != " " &&
+    board[0][2] == board[1][1] &&
+    board[1][1] == board[2][0]
   ) {
-    console.log(true);
     return true;
   } else {
     return false;
@@ -96,11 +90,15 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-
-  if(horizontalWin){
+  if (horizontalWin() == true) {
     return true;
+  } else if (verticalWin() == true) {
+    return true;
+  } else if (diagonalWin() == true) {
+    return true;
+  } else {
+    return false;
   }
-
 }
 
 function ticTacToe(row, column) {
