@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
-const assert = require('assert');
-const readline = require('readline');
+const assert = require("assert");
+const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
 let board = [];
-let solution = '';
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let solution = "abcd";
+let letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -29,16 +29,60 @@ function getRandomInt(min, max) {
 }
 
 function generateHint() {
-  // your code here
+  let solutionArray = solution.split("");
+  let guessArray = guess.split("");
+  let correctLetterLocations = 0;
+  let correctLetters = 0;
+
+  console.log(guessArray);
+  console.log(solutionArray);
+  
+  for (let i = 0; i < solutionArray.length; i++) {
+    if (guessArray[i] === solutionArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+
+  for (let i = 0; i < solutionArray.length; i++) {
+    let targetIndex = solutionArray.indexOf(guessArray[i]);
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[targetIndex] = null;
+      console.log("correct letter locations:", correctLetterLocations);
+      console.log("correct letters:", correctLetters);
+      console.log("solution array:", solutionArray);
+    }
+  }
+
+  return `${correctLetterLocations}-${correctLetters}`;
+
+
 }
 
 function mastermind(guess) {
-  solution = 'abcd';
-  board.push(guess)
-  var hint = generateHint(guess)
-  console.log(hint);
-  // Comment this out to generate a random solution
-  // your code here
+  const solution = "abcd"; 
+  console.log(solution);
+
+  var hint = generateHint(guess);
+
+  var guessHint = `${guess}-${hint}`;
+  board.push(guessHint);
+  console.log("hint:", hint);
+  if (guess === solution) {
+    console.log("You got it!");
+
+    //needs to return to pass test
+
+    return "You got it!";
+  } else if (board.length > 9) {
+    console.log(board.length > 9);
+    console.log(`Your out of turns! The solution is: ${solution}`);
+    return `Your out of turns! The solution is: ${solution}`;
+  } else {
+    console.log("Try again!");
+    return "Try again!";
+  }
 }
 
 
