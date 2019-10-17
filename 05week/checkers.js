@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+class Checker() {
   // Your code here
 }
 
