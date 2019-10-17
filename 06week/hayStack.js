@@ -1015,18 +1015,18 @@ var sortedArray = [
     }
     
 
-    var needle = ("worry");
+    var needle = "worry";
 
     // implement a function that will
     // execute a binaray search on the array 
     // to find the needle
     function needleFinder(sortedArray, needle){
-        let index = math.floor(sortedArray.length/2)
+        let index = Math.floor(sortedArray.length/2)
             if(needle < sortedArray[index]){
                 let knife = sortedArray.slice(0, index);
                 needleFinder(knife, needle);
             } else if(needle > sortedArray[index]) {
-                let knife = sortedArra.slice(0,index);
+                let knife = sortedArray.slice(0,index);
                 needleFinder(knife, needle);
             } else if(needle == sortedArray[index]){
                 console.log("i found "+ needle);
