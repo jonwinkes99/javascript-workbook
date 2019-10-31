@@ -1,4 +1,3 @@
-
 var sortedArray = [
     "a",
     "ability",
@@ -932,7 +931,7 @@ var sortedArray = [
     "us",
     "use",
     "usually",
-    "value",
+    "needle",
     "various",
     "very",
     "victim",
@@ -1000,40 +999,40 @@ var sortedArray = [
     "young",
     "your",
     "yourself"]
+
+
+
+function find(haystack, needle) {
     
-    
-    // my naieve implementation.
-    function find(haystack, needle){
-        //code here
-        for(var i=0;i<haystack.length;i++){
-            var currentWord = haystack[i];
-            if(currentWord == needle){
-                return i;
-            }
+    for (var i = 0; i < haystack.length; i++) {
+        var currentWord = haystack[i];
+        if (currentWord == needle) {
+            return i;
         }
-        return -1;
     }
-    
+    return -1;
+}
 
-    var needle = "worry";
 
-    // implement a function that will
-    // execute a binaray search on the array 
-    // to find the needle
-    function needleFinder(sortedArray, needle){
-        let index = Math.floor(sortedArray.length/2)
-            if(needle < sortedArray[index]){
-                let knife = sortedArray.slice(0, index);
-                needleFinder(knife, needle);
-            } else if(needle > sortedArray[index]) {
-                let knife = sortedArray.slice(0,index);
-                needleFinder(knife, needle);
-            } else if(needle == sortedArray[index]){
-                console.log("i found "+ needle);
-            }
+function binarySearch(haystack, needle) {
+
+    var ay = 0,
+        stopIt = haystack.length - 1,
+        middle = Math.floor((stopIt + ay) / 2);
+
+    while (haystack[middle] != needle && ay < stopIt) {
+
+        if (needle < haystack[middle]) {
+            stopIt = middle - 1;
+        } else if (needle > haystack[middle]) {
+            ay = middle + 1;
         }
-    
-    
-    
-    // call your method
-    console.log(find(sortedArray, "ahead"));
+
+        middle = Math.floor((stopIt + ay) / 2);
+    }
+
+
+    return (haystack[middle] != needle) ? -1 : middle;
+}
+
+console.log(binarySearch(sortedArray, "of"));
