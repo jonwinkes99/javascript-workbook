@@ -10,18 +10,27 @@ name it "Tankstelle"
 */
 
 class Client {
-    constructor(address, name, phoneNumber){
-        this.address = address;
+    constructor(name, address, phoneNumber){
         this.name = name;
+        this.address = address;
         this.phoneNumber = phoneNumber;
     }
 }
 
+var newClient001 = new Client("Jon Winkles", "4721 wonderhill rd", "(512)995-0995");
+var newClient002 = new Client("Mimi Winkles", "4771 house hill rd", "(979)767-6767");
+var newClient003 = new Client("Grandad Winkles", "4721 house hill rd", "(767)234-2342");
+var newClient004 = new Client("Momma Winks", "868 plitz ln", "(888)121-2323");
+var newClient005 = new Client("Ashley linkles", "111 genius blvd", "(777)098-0988");
+var newClient006 = new Client("Faif Stanks", "123123 lame rd", "(767)454-4545");
 
+console.log(newClient002.name)
+
+/*
 let newClientLs = [{
     name: "Jon Winkles",
     address: "4721 wonderhill rd",
-    phoneNumber: 1"(512)995-0995"
+    phoneNumber: "(512)995-0995"
 },{
     name: "Mimi Winkles",
     address: "4771 house hill rd",
@@ -51,7 +60,7 @@ let newClientLs = [{
 //const message = ("The address is "+ users2.address +". His/Her name is "+ users2.name +". His/Her number is "+ users2.phoneNumber +".")
 
 //console.log(message);
-console.log(`${newClientLs.name} needs some more. this is where they live ${newClientLs.address}. Here call'em ${newClientLs.phoneNumber}.`);
+//console.log(`${newClientLs.name} needs some more. this is where they live ${newClientLs.address}. Here call'em ${newClientLs.phoneNumber}.`);
 
 
 /*
